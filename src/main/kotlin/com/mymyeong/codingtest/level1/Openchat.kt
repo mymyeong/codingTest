@@ -4,8 +4,7 @@ class Openchat {
     class Chat(
         var userId: String,
         var message: String
-    ){
-    }
+    )
 
     fun solution(record: Array<String>): Array<String> {
         val userList = mutableMapOf<String, String>()
@@ -38,7 +37,6 @@ class Openchat {
         }
 
         return chatListForUserId
-
     }
 
     private fun changeUserIdToNickname(
