@@ -1,6 +1,7 @@
 package com.mymyeong.codingtest.level1
 
 class Openchat {
+
     class Chat(
         var userId: String,
         var message: String
