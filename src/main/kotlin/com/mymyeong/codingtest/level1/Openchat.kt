@@ -38,6 +38,7 @@ class Openchat {
         }
 
         return chatListForUserId
+
     }
 
     private fun changeUserIdToNickname(
