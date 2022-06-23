@@ -1,48 +1,38 @@
 package com.mymyeong.codingtest.level1
 
 class Openchat {
-
-    enum class Command() {
-        Enter(),
-        Leave(),
-        Change()
+    class Chat(
+        var userId: String,
+        var message: String
+    ){
     }
-
-    data class Chat(
-        var command: Command,
-        var userId : String,
-        var nickName: String = ""
-    )
 
     fun solution(record: Array<String>): Array<String> {
-        val recordList = getRecordList(record)
-        return getChatList(recordList)
-    }
-
-    private fun getChatList(recordList: List<Chat>): Array<String> {
         val userList = mutableMapOf<String, String>()
-
-        val chatListForUserId: MutableList<String> = getChatListForUserId(recordList, userList)
+        val chatListForUserId: MutableList<Chat> = getChatListForUserId(record, userList)
 
         return changeUserIdToNickname(chatListForUserId, userList).toTypedArray()
     }
 
     private fun getChatListForUserId(
-        recordList: List<Chat>,
+        recordList: Array<String>,
         userList: MutableMap<String, String>
-    ): MutableList<String> {
-        val chatListForUserId: MutableList<String> = mutableListOf()
+    ): MutableList<Chat> {
+        val chatListForUserId: MutableList<Chat> = mutableListOf()
         recordList.forEach {
-            when (it.command) {
-                Command.Enter -> {
-                    userList[it.userId] = it.nickName
-                    chatListForUserId.add("${it.userId}님이 들어왔습니다.")
+            val recordLine = it.split(" ")
+            val command = recordLine[0]
+            val userId = recordLine[1]
+            when (command) {
+                "Enter" -> {
+                    userList[userId] = recordLine[2]
+                    chatListForUserId.add(Chat(userId, "${userId}님이 들어왔습니다."))
                 }
-                Command.Leave -> {
-                    chatListForUserId.add("${it.userId}님이 나갔습니다.")
+                "Leave" -> {
+                    chatListForUserId.add(Chat(userId, "${userId}님이 나갔습니다."))
                 }
-                Command.Change -> {
-                    userList[it.userId] = it.nickName
+                "Change" -> {
+                    userList[userId] = recordLine[2]
                 }
             }
         }
@@ -51,28 +41,18 @@ class Openchat {
     }
 
     private fun changeUserIdToNickname(
-        chatList: MutableList<String>,
+        chatList: MutableList<Chat>,
         userList: MutableMap<String, String>
     ): MutableList<String> {
         val result: MutableList<String> = mutableListOf()
 
-        chatList.forEach { chatStr ->
-            userList.keys.forEach { userId ->
-                if (chatStr.contains(userId)) {
-                    result.add(userList[userId]?.let { chatStr.replace(userId, it) }.toString())
-                }
+        chatList.map {
+            val nickName = userList[it.userId]
+            if (nickName != null) {
+                result.add(it.message.replace(it.userId, nickName))
             }
         }
 
         return result
     }
-
-    private fun getRecordList(record: Array<String>) = record.map {
-        val chatArray = it.split(" ")
-
-        when (val command = Command.valueOf(chatArray[0])) {
-            Command.Leave -> Chat(command, chatArray[1])
-            else -> Chat(command, chatArray[1], chatArray[2])
-        }
-    }.toList()
 }
