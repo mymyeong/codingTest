@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 internal class FoursquareTest {
 
-    val foursquare: Foursquare = Foursquare()
+    private val foursquare: Foursquare = Foursquare()
 
     @Test
     fun solution() {
