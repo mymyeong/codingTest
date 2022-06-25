@@ -9,8 +9,13 @@ class TargetNumber {
     )
 
     fun solution(numbers: IntArray, target: Int): Int {
-        val node = makeNode(Node(0), numbers)
-        return getTargetSumCount(node, 0, target)
+        return numbers.fold(listOf(0)) { list, i ->
+            list.run {
+                map { it + i } + map{ it - i }
+            }
+        }.count { it == target }
+//        val node = makeNode(Node(0), numbers)
+//        return getTargetSumCount(node, 0, target)
     }
 
     private fun makeNode(node: Node, numbers: IntArray): Node {
