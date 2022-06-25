@@ -1,4 +1,4 @@
-package com.mymyeong.codingtest.level1
+package com.mymyeong.codingtest.level2
 
 import java.lang.Integer.max
 import java.lang.Integer.min

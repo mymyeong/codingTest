@@ -1,4 +1,4 @@
-package com.mymyeong.codingtest.level1
+package com.mymyeong.codingtest.level2
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

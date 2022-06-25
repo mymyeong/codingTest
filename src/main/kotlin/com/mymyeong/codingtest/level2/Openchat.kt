@@ -1,4 +1,4 @@
-package com.mymyeong.codingtest.level1
+package com.mymyeong.codingtest.level2
 
 class Openchat {
 
