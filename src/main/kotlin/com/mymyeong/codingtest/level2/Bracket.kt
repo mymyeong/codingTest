@@ -19,21 +19,6 @@ class Bracket {
         }
     }
 
-    private fun swapBracket(u: CharArray): String {
-        return if(u.size >= 4) {
-            when(u[1]) {
-                ')' -> "("
-                else -> ")"
-            } +
-            when(u[2]) {
-                ')' -> "("
-                else -> ")"
-            }
-        } else {
-            ""
-        }
-    }
-
     private fun getCorrectBracket(charList: CharArray): Pair<CharArray, CharArray> {
         val temp = mutableListOf<Char>()
         for(i in 0 until  charList.size -1 step 2) {
@@ -47,6 +32,22 @@ class Bracket {
         val a = temp.subList(0, temp.size).toCharArray()
         val b = charList.copyOfRange(temp.size, charList.size)
         return Pair(a, b)
+    }
+
+    private fun swapBracket(u: CharArray): String {
+        return if(u.size >= 4) {
+            var temp = ""
+            for(i in 1 until  u.size-1) {
+                println(i)
+                temp = temp.plus(when(u[i]) {
+                    '(' -> ')'
+                    else -> '('
+                })
+            }
+            temp
+        } else {
+            ""
+        }
     }
 
     private fun isValidBracket(u: CharArray): Boolean {
