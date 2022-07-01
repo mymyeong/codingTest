@@ -19,12 +19,12 @@ class Formula {
         operators.forEach { it ->
             val temp = mutableListOf<String>()
             temp.addAll(tokenize)
-            it.forEach { ex ->
-                while (temp.contains(ex)) {
-                    val index = temp.indexOf(ex)
+            it.forEach { operator ->
+                while (temp.contains(operator)) {
+                    val index = temp.indexOf(operator)
                     val val1 = temp[index - 1]
                     val val2 = temp[index + 1]
-                    val val3 = calculate(val1.toLong(), val2.toLong(), ex)
+                    val val3 = calculate(val1.toLong(), val2.toLong(), operator)
 
                     temp[index - 1] = val3.toString()
                     temp.removeAt(index)
