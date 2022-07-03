@@ -31,24 +31,31 @@ class Joystick {
             ("Z" to 1)
         )
         var count = 0
-        val visited = MutableList(name.length) { false }
 
         val list = name.chunked(1).map {
             alphaMap[it] ?: 0
         }.toIntArray()
 
-        for(i in 0 until list.size/2) {
-            if(list[i] != 0) {
-                count++
-            }
-            if(list[name.length-i-1] != 0) {
-                count++
-            }
+        println(list.contentToString())
+        println(list.sum())
+        println()
 
-            visited[i] = true
-            visited[name.length-i-1] = true
+        for(i in 0 until  list.size/2) {
+
+            println(list[i])
+            println(list[name.length-i-1])
+
+//            if(list[i] != 0) {
+                count++
+//            }
+//            if(list[name.length-i-1] != 0) {
+                count++
+//            }
+
+            println()
         }
 
+        println("count:$count")
         return list.sum()+count-1
     }
 }
