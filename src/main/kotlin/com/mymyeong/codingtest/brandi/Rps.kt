@@ -11,7 +11,6 @@ class Rps {
 
         points.forEachIndexed { round, score ->
 
-//            val hand = hands.map { it[round].toString() }
             val winners = getWinners(score, hands[round].toCharArray().map { it.toString() })
 
             gameScore += score
