@@ -1,16 +1,17 @@
 package com.mymyeong.codingtest.level3
 
+import java.util.Stack
+
 class Network {
     fun solution(n: Int, computers: Array<IntArray>): Int {
-        var answer = computers.size
+        val visit = mutableSetOf<Int>()
+        val stack: Stack<Int> = Stack()
 
         for (i: Int in 0 until computers.size - 1) {
-            if (computers[i + 1][i] == 1 && computers[i][i + 1] == 1) {
-                answer--
-            }
+
         }
 
-        return answer
+        return 0
     }
 }
 

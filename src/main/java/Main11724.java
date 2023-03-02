@@ -32,7 +32,6 @@ public class Main11724 {
         for (int i = 0; i < n; i++) {
             if (visited[i] == false) {
                 count++;
-
                 dfs(i);
             }
         }

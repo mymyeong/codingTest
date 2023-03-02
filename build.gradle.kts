@@ -10,7 +10,7 @@ plugins {
 group = "com.mymyeong"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
-val kotestVersion = "5.5.5"
+val kotestVersion = "5.4.1"
 
 repositories {
     mavenCentral()
@@ -25,7 +25,9 @@ dependencies {
 
     testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
     testImplementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
-    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:$kotestVersion")
+
+    testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.3.72")
 }
 
 tasks.withType<KotlinCompile> {
