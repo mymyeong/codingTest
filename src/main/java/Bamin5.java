@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Bamin5 {
@@ -17,7 +17,7 @@ public class Bamin5 {
 
         if (resultArray.length > b) {
             Integer findValue = resultArray[b-1];
-            System.out.println(findValue + " " + inputData.stream().filter(it -> it == findValue).count());
+            System.out.println(findValue + " " + inputData.stream().filter(it -> Objects.equals(it, findValue)).count());
         } else {
             System.out.println("IMPOSSIBLE");
         }
