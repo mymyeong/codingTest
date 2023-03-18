@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Yanolja0 {
+
     public int solution(int N) {
         String binary = Integer.toBinaryString(N);
         int count = 0;
@@ -24,9 +25,7 @@ public class Yanolja0 {
                 }
             }
         }
-        if (lengths.size() == 0)
-            return 0;
-        else
-            return Collections.max(lengths);
+
+        return lengths.isEmpty() ? 0 : Collections.max(lengths);
     }
 }
