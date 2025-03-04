@@ -6,7 +6,6 @@ class ContinuousString {
         var answer = 0
 
         for (i: Int in s.indices) {
-            println("$i")
             for (n: Int in k until s.length - i + 1) {
 //                println("$i $n")
                 val temp = s.substring(i, i + n)

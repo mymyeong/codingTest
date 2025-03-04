@@ -22,4 +22,9 @@ class ContinuousStringTest : FunSpec({
         result shouldBe 3
     }
 
+    test("test4") {
+        val result = continuousString.solution("abba", 2)
+        result shouldBe 5
+    }
+
 })
