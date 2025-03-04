@@ -7,7 +7,6 @@ class ContinuousString {
 
         for (i: Int in s.indices) {
             for (n: Int in k until s.length - i + 1) {
-//                println("$i $n")
                 val temp = s.substring(i, i + n)
                 if (temp.toCharArray().toSet().size == k) {
                     answer++
@@ -18,6 +17,4 @@ class ContinuousString {
 
         return answer
     }
-
-
 }
